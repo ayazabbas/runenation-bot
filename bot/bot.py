@@ -18,7 +18,7 @@ async def on_ready():
 
 @bot.command(name="tob")
 async def tob(ctx, *, rsn):
-    response = sheetreader.tob(rsn)
+    response = sheetreader.tob(rsn, "TOB")
     await ctx.send(response)
 
 
