@@ -1,8 +1,10 @@
 import boto3
 import botocore
 import os
+import logging
 from dotenv import load_dotenv
 
+logging.info("Loading environment.")
 load_dotenv()
 ENV = os.getenv("ENV")
 S3_BUCKET = os.getenv("S3_BUCKET")

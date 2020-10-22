@@ -1,5 +1,6 @@
 import gspread
 import pandas as pd
+import logging
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = [
@@ -16,8 +17,9 @@ levels = ["Novice", "Intermediate", "Proficient", "Advanced"]
 
 
 def _get_player_info(sheet, rsn):
+    logging.info(f"Getting {sheet} info for {rsn}")
     data = sheet.get_all_values()
-    del data[0:2]
+    del data[-1]
     headers = data.pop(0)
 
     df = pd.DataFrame(data, columns=headers)
@@ -105,4 +107,3 @@ def tob(rsn):
         response = response + f"\n{column}: {player_info_final.iloc[0][column]}"
 
     return response
-
