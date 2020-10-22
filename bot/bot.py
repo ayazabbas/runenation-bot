@@ -1,9 +1,8 @@
 # bot.py
+import config
 import os
 import random
 import sheetreader
-
-import config
 
 from discord.ext import commands
 
