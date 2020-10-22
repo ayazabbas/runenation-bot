@@ -3,6 +3,8 @@ import pandas as pd
 import logging
 from oauth2client.service_account import ServiceAccountCredentials
 
+logger = logging.getLogger()
+
 scope = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -17,7 +19,7 @@ levels = ["Novice", "Intermediate", "Proficient", "Advanced"]
 
 
 def _get_player_info(sheet, rsn):
-    logging.info(f"Getting {sheet} info for {rsn}")
+    logger.info(f"Getting {sheet} info for {rsn}")
     data = sheet.get_all_values()
     del data[-1]
     headers = data.pop(0)
@@ -69,7 +71,7 @@ def cox(rsn, sheet):
     return response
 
 
-def tob(rsn):
+def tob(rsn, sheet):
     sheet = client.open("Mentor Log/Calendar").worksheet("TOB")
     player_info, error = _get_player_info(sheet, rsn)
 

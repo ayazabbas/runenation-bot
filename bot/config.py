@@ -4,6 +4,9 @@ import os
 import logging
 from dotenv import load_dotenv
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
 logging.info("Loading environment.")
 load_dotenv()
 ENV = os.getenv("ENV")
