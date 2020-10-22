@@ -13,7 +13,7 @@ bot = commands.Bot(command_prefix="!rn ")
 
 @bot.event
 async def on_ready():
-    print(f"{bot.user} is connected to guilds {bot.guilds}")
+    logging.info(f"{bot.user} is connected to guilds {bot.guilds}")
 
 
 @bot.command(name="tob")
